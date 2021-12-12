@@ -1,0 +1,21 @@
+{
+  "name": "greendot/image-puller-client",
+  "description": "Client bundle for image pulling from Greendot admin",
+  "type": "symfony-bundle",
+  "require": {
+    "php": ">=7.4",
+    "symfony/framework-bundle": "^5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gebler\\SecurityHeadersBundle\\": "src/"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Konstantin Kozokar",
+      "email": "konstantin.kozokar@gmail.com"
+    }
+  ]
+}
