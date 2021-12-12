@@ -15,9 +15,3 @@ services:
   Greendot\ImagePullerClient\Controller\:
     resource: '../../../src/Controller/'
     tags: ['controller.service_arguments']
-
-framework:
-  router:
-    controller:
-      resource: '../../../src/Controller/'
-      type: annotation
