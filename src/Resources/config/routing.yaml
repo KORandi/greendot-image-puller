@@ -1,3 +1,3 @@
-app_route:
-  resource: "@ImagePullerClient/Controller"
+controllers:
+  resource: ../../../src/Controller/
   type:     annotation
