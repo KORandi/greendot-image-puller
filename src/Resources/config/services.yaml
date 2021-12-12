@@ -16,6 +16,8 @@ services:
     resource: '../../../src/Controller/'
     tags: ['controller.service_arguments']
 
-controller:
-  resource: '../../../src/Controller/'
-  type: annotation
+framework:
+  router:
+    controller:
+      resource: '../../../src/Controller/'
+      type: annotation
