@@ -2,13 +2,10 @@
 
 namespace Greendot\ImagePullerClient\Controller;
 
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class Api extends \Symfony\Bundle\FrameworkBundle\Controller\AbstractController
+class Api extends AbstractController
 {
-    /**
-     * @Route("/api/image-puller")
-     */
     public function index() {
         return $this->json(["status" => 200]);
     }

@@ -1,0 +1,3 @@
+kekish:
+  path: /kek
+  controller: Greendot\ImagePullerClient\Controller\Api::index
