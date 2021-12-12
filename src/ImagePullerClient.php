@@ -11,7 +11,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
  */
 class ImagePullerClient extends Bundle {
     public function load(array $configs, ContainerBuilder $containerBuilder) {
-        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__.'/../config'));
-        $loader->load("routes.yaml");
+        $loader = new YamlFileLoader($containerBuilder, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load("routing.yaml");
     }
 }
