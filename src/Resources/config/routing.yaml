@@ -1,3 +1,3 @@
-kekish:
-  path: /kek
-  controller: Greendot\ImagePullerClient\Controller\Api::index
+app_route:
+  resource: "@ImagePullerClient/Controller"
+  type:     annotation
