@@ -1,3 +1,0 @@
-greendot.image_puller_client.controllers:
-  resource: ../../../src/Controller/
-  type:     annotation
