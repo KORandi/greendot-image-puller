@@ -1,4 +1,5 @@
 <?php
+namespace Greendot\ImagePullerClient\DependencyInjection;
 
 use App\DependencyInjection\Configuration;
 use Symfony\Component\Config\FileLocator;
