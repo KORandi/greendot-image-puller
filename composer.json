@@ -8,7 +8,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Gebler\\SecurityHeadersBundle\\": "src/"
+      "Greendot\\ImagePullerClient\\": "src/"
     }
   },
   "license": "MIT",
