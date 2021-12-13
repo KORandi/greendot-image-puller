@@ -1,6 +1,6 @@
 <?php
 
-namespace Greendot\DependencyInjection;
+namespace Greendot\ImagePullerClient\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
