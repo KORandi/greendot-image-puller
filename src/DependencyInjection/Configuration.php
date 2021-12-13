@@ -17,8 +17,8 @@ class Configuration implements ConfigurationInterface
         $root = $treeBuilder->getRootNode();
         $root
             ->children()
-                ->scalarNode('jwt_user')->defaultValue('greendot')->end()
-                ->scalarNode('jwt_pass')->defaultValue('NecumV')->end()
+                ->scalarNode('jwt_user')->defaultValue('')->end()
+                ->scalarNode('jwt_pass')->defaultValue('')->end()
             ->end();
         return $treeBuilder;
     }
