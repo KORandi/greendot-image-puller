@@ -19,6 +19,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('jwt_user')->defaultValue('')->end()
                 ->scalarNode('jwt_pass')->defaultValue('')->end()
+                ->scalarNode('src')->defaultValue('/public/uploads/images')
             ->end();
         return $treeBuilder;
     }

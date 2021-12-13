@@ -5,7 +5,8 @@
   "require": {
     "php": ">=7.4",
     "symfony/framework-bundle": "^5.2",
-    "rbdwllr/reallysimplejwt": "^4.0"
+    "rbdwllr/reallysimplejwt": "^4.0",
+    "ext-gd": "*"
   },
   "autoload": {
     "psr-4": {

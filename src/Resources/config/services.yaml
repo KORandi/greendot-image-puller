@@ -4,8 +4,10 @@ services:
     autowire: true      # Automatically injects dependencies in your services.
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     bind:
-      $jwtPass: '%image_puller_client.jwt_pass%'
-      $jwtUser: '%image_puller_client.jwt_user%'
+      $jwtPass:     '%image_puller_client.jwt_pass%'
+      $jwtUser:     '%image_puller_client.jwt_user%'
+      $src:         '%image_puller_client.src%'
+      $projectRoot: '%kernel.project_dir%'
 
   Greendot\ImagePullerClient\:
     resource: '../../../src'
