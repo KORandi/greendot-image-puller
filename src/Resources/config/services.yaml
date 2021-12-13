@@ -1,7 +1,3 @@
-parameters:
-  jwt_pass: 'NecumV'
-  jwt_user: 'greendot'
-
 services:
 
   _defaults:
