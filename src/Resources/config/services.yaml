@@ -8,8 +8,8 @@ services:
     autowire: true      # Automatically injects dependencies in your services.
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
     bind:
-      $apiPass: '%jwt_pass%'
-      $apiUser: '%jwt_user%'
+      $jwtPass: '%jwt_pass%'
+      $jwtUser: '%jwt_user%'
 
   Greendot\ImagePullerClient\:
     resource: '../../../src'
