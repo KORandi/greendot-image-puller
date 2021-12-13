@@ -41,11 +41,11 @@ class ImageService
     {
         $image = false;
         if ($type == IMAGETYPE_JPEG) {
-            $image = imagecreatefromjpeg($filename);
+            $image = \imagecreatefromjpeg($filename);
         } elseif ($type == IMAGETYPE_PNG) {
-            $image = imagecreatefrompng($filename);
+            $image = \imagecreatefrompng($filename);
         } elseif ($type == IMAGETYPE_GIF) {
-            $image = imagecreatefromgif($filename);
+            $image = \imagecreatefromgif($filename);
         }
         return $image;
     }
@@ -60,8 +60,8 @@ class ImageService
 
     private function resize_image($new_width, $new_height, $image, $width, $height)
     {
-        $new_image = imagecreatetruecolor($new_width, $new_height);
-        imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        $new_image = \imagecreatetruecolor($new_width, $new_height);
+        \imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
         return $new_image;
     }
 

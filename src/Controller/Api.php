@@ -47,12 +47,15 @@ class Api extends AbstractController
         }
 
         if (!$this->isFileInRequest($request)) {
-            return $this->json(["status" => 400, "msg" => "No file uploaded."], 401);
+            return $this->json([
+                "status" => 400,
+                "msg" => "No file uploaded."
+            ], 400);
         }
 
         return $this->processFiles($request) ?
             $this->json(["status" => 200]) :
-            $this->json(["status" => 500, "msg" => "Something happened."]);
+            $this->json(["status" => 500, "msg" => "Something happened."], 500);
     }
 
     private function isTokenValid(Request $request): bool
