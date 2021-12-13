@@ -13,7 +13,7 @@ class ImagePullerClientExtension extends Extension {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
         foreach ($config as $key => $value) {
-            $container->setParameter('image-puller-client.' . $key, $value);
+            $container->setParameter('image_puller_client.' . $key, $value);
         }
     }
 }
