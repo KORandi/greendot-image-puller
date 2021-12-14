@@ -21,4 +21,9 @@ class ImagePullerClientExtension extends Extension {
     {
         return new Configuration();
     }
+
+    public function getAlias(): string
+    {
+        return 'image_puller_client';
+    }
 }
