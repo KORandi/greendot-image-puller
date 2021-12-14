@@ -21,7 +21,7 @@ class ImageService
      */
     public function uploadImage(UploadedFile $file)
     {
-        $name = md5(uniqid());
+        $name = explode(".", $file->getClientOriginalName())[0];
         $extension = $file->guessExtension();
         $file->move($this->src, $name . '.' . $extension);
         $link = $this->src . '/' . $name . '.' . $extension;
