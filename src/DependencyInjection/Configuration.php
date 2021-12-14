@@ -14,8 +14,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('image_puller_client');
-        $root = $treeBuilder->getRootNode();
-        $root
+        $treeBuilder->getRootNode()
             ->children()
                 ->scalarNode('jwt_user')->defaultValue('')->end()
                 ->scalarNode('jwt_pass')->defaultValue('')->end()
