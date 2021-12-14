@@ -6,7 +6,8 @@
     "php": ">=7.4",
     "symfony/framework-bundle": "^5.2",
     "rbdwllr/reallysimplejwt": "^4.0",
-    "ext-gd": "*"
+    "ext-gd": "*",
+    "symfony/yaml": "^5.4"
   },
   "autoload": {
     "psr-4": {
