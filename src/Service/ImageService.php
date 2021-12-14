@@ -10,9 +10,9 @@ class ImageService
 
     public function __construct(string $src, string $projectRoot)
     {
-        $this->src = $projectRoot;
-        if (str_starts_with($src, $projectRoot)) {
-            $this->src = $src;
+        $this->src = $src;
+        if (!str_starts_with($src, $projectRoot)) {
+            $this->src = $projectRoot.$src;
         }
     }
 
@@ -22,19 +22,17 @@ class ImageService
     public function uploadImage(UploadedFile $file)
     {
         $name = md5(uniqid());
-
-        $file->move($this->src, $name . '.' . $file->guessExtension());
-
-        $link = $this->src . '/' . $name . '.' . $file->guessExtension();
-
+        $extension = $file->guessExtension();
+        $file->move($this->src, $name . '.' . $extension);
+        $link = $this->src . '/' . $name . '.' . $extension;
         list($width, $height, $type) = getimagesize($link);
         $image = $this->load_image($link, $type);
         $imageLg = $this->resizeMaxWidth(1000, $image, $width, $height);
-        $this->save_image($imageLg, $this->src . '/' . $name . '.lg.' . $file->guessExtension());
+        $this->save_image($imageLg, $this->src . '/' . $name . '.lg.' . $extension);
         $imageMd = $this->resizeMaxWidth(300, $image, $width, $height);
-        $this->save_image($imageMd, $this->src . '/' . $name . '.md.' . $file->guessExtension());
+        $this->save_image($imageMd, $this->src . '/' . $name . '.md.' . $extension);
         $imageSm = $this->resizeMaxWidth(150, $image, $width, $height);
-        $this->save_image($imageSm, $this->src . '/' . $name . '.sm.' . $file->guessExtension());
+        $this->save_image($imageSm, $this->src . '/' . $name . '.sm.' . $extension);
     }
 
     private function load_image($filename, $type)

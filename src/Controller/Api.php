@@ -53,9 +53,8 @@ class Api extends AbstractController
             ], 400);
         }
 
-        return $this->processFiles($request) ?
-            $this->json(["status" => 200]) :
-            $this->json(["status" => 500, "msg" => "Something happened."], 500);
+        $this->saveFiles($request);
+        return $this->json(["status" => 200]);
     }
 
     private function isTokenValid(Request $request): bool
@@ -68,16 +67,6 @@ class Api extends AbstractController
     {
         $files = $request->files->all();
         return sizeof($files) != 0;
-    }
-
-    private function processFiles(Request $request): ?\Exception
-    {
-        try {
-            $this->saveFiles($request);
-        } catch (\Exception $exception) {
-            return $exception;
-        }
-        return null;
     }
 
     private function saveFiles(Request $request)
