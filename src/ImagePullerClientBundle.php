@@ -18,7 +18,7 @@ class ImagePullerClientBundle extends Bundle {
         $processor = new Processor();
         $configuration = new Configuration();
         $processedConfigs[] = $processor->processConfiguration($configuration, []);
-        $projectRoot = $this->container->get("kernel.project_dir");
+        $projectRoot = $container->get("kernel.project_dir");
         $this->saveIntoYAML($processedConfigs, $projectRoot);
     }
 
