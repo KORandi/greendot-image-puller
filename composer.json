@@ -7,7 +7,7 @@
     "symfony/framework-bundle": "^5.2",
     "rbdwllr/reallysimplejwt": "^4.0",
     "ext-gd": "*",
-    "symfony/yaml": "^5.4"
+    "symfony/yaml": "^5.2"
   },
   "autoload": {
     "psr-4": {
