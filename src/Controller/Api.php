@@ -27,18 +27,7 @@ class Api extends AbstractController
         $this->imageService = $imageService;
     }
 
-    /**
-     * @Route("/", name="index", methods={"GET"})
-     */
-    public function index(): JsonResponse
-    {
-        return $this->json(["status" => 200]);
-    }
-
-    /**
-     * @Route ("/", name="receive-file", methods={"POST"})
-     */
-    public function receiveFile(
+    public function index(
         Request      $request
     ): JsonResponse
     {
