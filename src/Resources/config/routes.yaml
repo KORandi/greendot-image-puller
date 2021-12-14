@@ -1,3 +1,3 @@
-file_endpoint:
+image_puller_client:
   controller: Greendot\ImagePullerClient\Controller\Api::index
   path:       "%image_puller_client.endpoint%"
