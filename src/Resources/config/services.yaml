@@ -8,7 +8,7 @@ services:
       $jwtUser:     '%image_puller_client.jwt_user%'
       $src:         '%image_puller_client.src%'
       $projectRoot: '%kernel.project_dir%'
-      $endpoint:    '%image_puller_client.endpoint'
+      $endpoint:    '%image_puller_client.endpoint%'
 
   Greendot\ImagePullerClient\:
     resource: '../../../src'
