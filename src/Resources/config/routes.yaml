@@ -1,4 +1,3 @@
-routes:
-  image_puller_client:
-    controller: Greendot\ImagePullerClient\Controller\Api::index
-    path: "%image_puller_client.endpoint%"
+file_endpoint:
+  controller: Greendot\ImagePullerClient\Controller\Api::index
+  path:       "%image_puller_client.endpoint%"
