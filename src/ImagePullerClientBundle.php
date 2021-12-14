@@ -19,21 +19,21 @@ class ImagePullerClientBundle extends Bundle {
         $this->projectRoot = $projectRoot;
     }
 
-    public function build(ContainerBuilder $container)
-    {
-        parent::build($container);
-        $processor = new Processor();
-        $configuration = new Configuration();
-        $processedConfigs[] = $processor->processConfiguration($configuration, []);
-        $this->saveIntoYAML($processedConfigs);
-    }
-
-    private function saveIntoYAML(array $array)
-    {
-        $yaml = Yaml::dump($array);
-        $configPath = "/config/packages/image_puller_client.yaml";
-        if (!file_exists($configPath)) {
-            file_put_contents($this->projectRoot.$configPath, $yaml);
-        }
-    }
+//    public function build(ContainerBuilder $container)
+//    {
+//        parent::build($container);
+//        $processor = new Processor();
+//        $configuration = new Configuration();
+//        $processedConfigs[] = $processor->processConfiguration($configuration, []);
+//        $this->saveIntoYAML($processedConfigs);
+//    }
+//
+//    private function saveIntoYAML(array $array)
+//    {
+//        $yaml = Yaml::dump($array);
+//        $configPath = "/config/packages/image_puller_client.yaml";
+//        if (!file_exists($configPath)) {
+//            file_put_contents($this->projectRoot.$configPath, $yaml);
+//        }
+//    }
 }

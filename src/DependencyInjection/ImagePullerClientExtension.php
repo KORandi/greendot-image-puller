@@ -16,4 +16,9 @@ class ImagePullerClientExtension extends Extension {
             $container->setParameter('image_puller_client.' . $key, $value);
         }
     }
+
+    public function getConfiguration(array $config, ContainerBuilder $container): Configuration
+    {
+        return new Configuration();
+    }
 }
