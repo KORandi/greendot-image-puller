@@ -27,7 +27,12 @@ class Api extends AbstractController
         $this->imageService = $imageService;
     }
 
-    public function index(
+    /**
+     * @Route (methods={"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function saveImage(
         Request      $request
     ): JsonResponse
     {
@@ -43,6 +48,20 @@ class Api extends AbstractController
         }
 
         $this->saveFiles($request);
+        return $this->json(["status" => 200]);
+    }
+
+    /**
+     * @Route (methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function index(
+        Request      $request
+    ): JsonResponse {
+        if (!$this->isTokenValid($request)) {
+            return $this->json(["status" => 401, "msg" => "Access denied."], 401);
+        }
         return $this->json(["status" => 200]);
     }
 
