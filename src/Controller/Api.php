@@ -10,9 +10,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/api/greendot/image-puller-client")
- */
 class Api extends AbstractController
 {
     private JwtService $jwtService;
@@ -28,7 +25,6 @@ class Api extends AbstractController
     }
 
     /**
-     * @Route (methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
@@ -52,11 +48,10 @@ class Api extends AbstractController
     }
 
     /**
-     * @Route (methods={"GET"})
      * @param Request $request
      * @return JsonResponse
      */
-    public function index(
+    public function validate(
         Request      $request
     ): JsonResponse {
         if (!$this->isTokenValid($request)) {

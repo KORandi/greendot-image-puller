@@ -1,3 +1,7 @@
 file_endpoint:
-  controller: Greendot\ImagePullerClient\Controller\Api::index
-  path:       "%image_puller_client.endpoint%"
+  controller: Greendot\ImagePullerClient\Controller\Api::saveImage
+  path:       "%image_puller_client.endpoint%/save"
+
+validate:
+  controller: Greendot\ImagePullerClient\Controller\Api::validate
+  path: "%image_puller_client.endpoint%/validate"
