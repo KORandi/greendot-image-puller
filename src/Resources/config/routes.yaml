@@ -5,3 +5,7 @@ file_endpoint:
 validate:
   controller: Greendot\ImagePullerClient\Controller\Api::validate
   path: "%image_puller_client.endpoint%/validate"
+
+get_src:
+  controller: Greendot\ImagePullerClient\Controller\Api::getSrc
+  path: "%image_puller_client.endpoint%/src"

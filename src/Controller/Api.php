@@ -47,6 +47,18 @@ class Api extends AbstractController
         return $this->json(["status" => 200]);
     }
 
+    public function getSrc(
+        Request      $request,
+        string       $src
+    ): JsonResponse
+    {
+        if (!$this->isTokenValid($request)) {
+            return $this->json(["status" => 401, "msg" => "Access denied."], 401);
+        }
+
+        return $this->json(["status" => 200, "data" => $src]);
+    }
+
     /**
      * @param Request $request
      * @return JsonResponse
