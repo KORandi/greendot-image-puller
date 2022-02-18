@@ -79,7 +79,7 @@ class Api extends AbstractController
 
         try {
             $schemaManager = $this->entityManager->getConnection()->createSchemaManager();
-            if (!$schemaManager->tablesExist(["image"])) {
+            if (!$schemaManager->tablesExist(["file"])) {
                 return $this->json([
                     "status" => 404,
                     "msg" => "Table does not exist."
