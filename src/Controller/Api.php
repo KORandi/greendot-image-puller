@@ -49,21 +49,6 @@ class Api extends AbstractController
             ], 400);
         }
 
-        try {
-            $schemaManager = $this->entityManager->getConnection()->createSchemaManager();
-            if (!$schemaManager->tablesExist(["image"])) {
-                return $this->json([
-                    "status" => 404,
-                    "msg" => "Table does not exist."
-                ], 404);
-            }
-        } catch(\Exception $e) {
-            return $this->json([
-                "status" => 404,
-                "msg" => "Cannot connect to the db."
-            ], 404);
-        }
-
         $this->saveFiles($request);
         return $this->json(["status" => 200]);
     }
@@ -87,9 +72,26 @@ class Api extends AbstractController
     public function validate(
         Request      $request
     ): JsonResponse {
+
         if (!$this->isTokenValid($request)) {
             return $this->json(["status" => 401, "msg" => "Access denied."], 401);
         }
+
+        try {
+            $schemaManager = $this->entityManager->getConnection()->createSchemaManager();
+            if (!$schemaManager->tablesExist(["image"])) {
+                return $this->json([
+                    "status" => 404,
+                    "msg" => "Table does not exist."
+                ], 404);
+            }
+        } catch(\Exception $e) {
+            return $this->json([
+                "status" => 404,
+                "msg" => "Cannot connect to the db."
+            ], 404);
+        }
+
         return $this->json(["status" => 200]);
     }
 
