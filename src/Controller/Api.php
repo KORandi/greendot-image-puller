@@ -4,6 +4,7 @@ namespace Greendot\ImagePullerClient\Controller;
 
 use Doctrine\DBAL\Exception;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Greendot\ImagePullerClient\Service\ImageService;
 use Greendot\ImagePullerClient\Service\JwtService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,12 +17,12 @@ class Api extends AbstractController
 {
     private JwtService $jwtService;
     private ImageService $imageService;
-    private EntityManager $entityManager;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(
         JwtService   $jwtService,
         ImageService $imageService,
-        EntityManager $entityManager
+        EntityManagerInterface $entityManager
     )
     {
         $this->jwtService = $jwtService;
