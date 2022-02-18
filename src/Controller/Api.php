@@ -2,6 +2,8 @@
 
 namespace Greendot\ImagePullerClient\Controller;
 
+use Doctrine\DBAL\Exception;
+use Doctrine\ORM\EntityManager;
 use Greendot\ImagePullerClient\Service\ImageService;
 use Greendot\ImagePullerClient\Service\JwtService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,14 +16,17 @@ class Api extends AbstractController
 {
     private JwtService $jwtService;
     private ImageService $imageService;
+    private EntityManager $entityManager;
 
     public function __construct(
         JwtService   $jwtService,
-        ImageService $imageService
+        ImageService $imageService,
+        EntityManager $entityManager
     )
     {
         $this->jwtService = $jwtService;
         $this->imageService = $imageService;
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -41,6 +46,21 @@ class Api extends AbstractController
                 "status" => 400,
                 "msg" => "No file uploaded."
             ], 400);
+        }
+
+        try {
+            $schemaManager = $this->entityManager->getConnection()->createSchemaManager();
+            if (!$schemaManager->tablesExist(["image"])) {
+                return $this->json([
+                    "status" => 404,
+                    "msg" => "Table does not exist."
+                ], 404);
+            }
+        } catch(\Exception $e) {
+            return $this->json([
+                "status" => 404,
+                "msg" => "Cannot connect to the db."
+            ], 404);
         }
 
         $this->saveFiles($request);
