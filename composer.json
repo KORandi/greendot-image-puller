@@ -4,11 +4,11 @@
   "type": "symfony-bundle",
   "require": {
     "php": ">=7.4",
-    "symfony/framework-bundle": "^5.2",
+    "symfony/framework-bundle": ">=5.2",
     "rbdwllr/reallysimplejwt": "^4.0",
     "ext-gd": "*",
-    "symfony/yaml": "^5.2",
-    "symfony/orm-pack": "^2.2"
+    "symfony/yaml": ">=5.2",
+    "symfony/orm-pack": ">=2.2"
   },
   "autoload": {
     "psr-4": {
