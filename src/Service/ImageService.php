@@ -23,6 +23,11 @@ class ImageService
     {
         $name = explode(".", $file->getClientOriginalName())[0];
         $extension = $file->guessExtension();
+        if (str_contains($file->getMimeType(), 'image')){
+            $this->src = $this->src."/images";
+        } else {
+            $this->src = $this->src."/files";
+        }
         $file->move($this->src, $name . '.' . $extension);
     }
 
