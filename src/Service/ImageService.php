@@ -40,6 +40,8 @@ class ImageService
             $image = \imagecreatefrompng($filename);
         } elseif ($type == IMAGETYPE_GIF) {
             $image = \imagecreatefromgif($filename);
+        }elseif ($type == IMAGETYPE_WEBP){
+            $image = \imagecreatefromwebp($filename);
         }
         return $image;
     }
@@ -67,6 +69,8 @@ class ImageService
             imagepng($new_image, $new_filename);
         } elseif ($new_type == 'gif') {
             imagegif($new_image, $new_filename);
+        }else if($new_type == 'webp'){
+            imagewebp($new_image, $new_filename, $quality);
         }
     }
 
